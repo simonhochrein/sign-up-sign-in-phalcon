@@ -11,5 +11,5 @@ to start run these commands
 
 ``` cli
 $ echo 'CREATE DATABASE auth' | mysql -u root
-$ cat schemas/auth.sql | mysql -u root auth
+$ cat scripts/auth.sql | mysql -u root auth
 ```
