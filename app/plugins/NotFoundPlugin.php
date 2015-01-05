@@ -30,7 +30,7 @@ class NotFoundPlugin extends Plugin
 						'controller' => 'errors',
 						'action' => 'show404'
 					));
-                    //die($exception->getMessage());
+                   	die($exception->getMessage());
 					return false;
 			}
 		}
