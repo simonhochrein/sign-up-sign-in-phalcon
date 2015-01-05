@@ -49,7 +49,7 @@ class SecurityPlugin extends Plugin
 			//Private area resources
 			$privateResources = array(
 
-				'blog'         => array('index')
+				'secret'	=>	array('index')
 
 
 			);
@@ -58,13 +58,7 @@ class SecurityPlugin extends Plugin
 				$acl->addResource(new Resource($resource), $actions);
 			}
             $adminResources = array(
-				'companies'    => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete'),
-				'products'     => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete'),
-				'producttypes' => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete','controls'),
-				'invoices'     => array('index', 'profile'),
-                'controls'     => array('index', 'settings'),
-                //'blog'         => array('index','post')
-                //'acl'          => array('index')
+				'secret' => array('index')
 
 			);
 
@@ -77,17 +71,9 @@ class SecurityPlugin extends Plugin
 			//Public area resources
 			$publicResources = array(
 				'index'      => array('index'),
-				'about'      => array('index'),
-				'register'   => array('index'),
-                'time'       => array('index'),
-				'errors'     => array('show404', 'show500'),
 				'session'    => array('index', 'register', 'start', 'end'),
-				'contact'    => array('index', 'send'),
-                'blog'       => array('index','post','user')
-
-
-
-
+				'register'   => array('index'),
+				'errors'	=> array('show404','show401','show500')
 			);
 
 			foreach ($publicResources as $resource => $actions) {
@@ -131,6 +117,7 @@ class SecurityPlugin extends Plugin
 	 */
 	public function beforeDispatch(Event $event, Dispatcher $dispatcher)
 	{
+
 
 		$auth = $this->session->get('auth');
 		if (!$auth){
